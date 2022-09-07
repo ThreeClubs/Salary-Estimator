@@ -14,7 +14,6 @@ let resultDisplay = document.getElementById("resultDisplay");
 function salaryModel() {
   let fetchDemand = document.getElementsByName("demand");
 
-
   for (i = 0; i < fetchDemand.length; i++) {
     if (fetchDemand[i].checked) {
      demand = fetchDemand[i].value;
@@ -44,7 +43,7 @@ function salaryModel() {
     resultDisplay.textContent = incomes[2];
   } else if (
     (demand === "Medium" && supply === "High") ||
-    (demand ==="Low" && supply === "mMdium")
+    (demand ==="Low" && supply === "Medium")
   ) {
     resultDisplay.textContent = incomes[1];
   } else  {
