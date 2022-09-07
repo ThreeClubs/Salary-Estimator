@@ -6,10 +6,10 @@ const incomes = [
   "124,800+ Are you in tech?",
 ]
 
-
+const button = document.getElementById("button");
 let resultDisplay = document.getElementById("resultDisplay");
-  let demand = 0;
-  let supply = 0;
+let demand = 0;
+let supply = 0;
 
 function salaryModel() {
   let fetchDemand = document.getElementsByName("demand");
@@ -51,5 +51,4 @@ function salaryModel() {
   }
 }
 
-const button = document.getElementById("button");
 button.addEventListener("click", salaryModel);
