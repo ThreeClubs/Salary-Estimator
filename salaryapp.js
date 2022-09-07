@@ -1,37 +1,56 @@
 const incomes = [
-  "low: $45,760 - $52,000",
-  "low-medium: $52,001 - $62,400",
-  "medium: $62,401 - $83,200",
-  "medium-high: $83,201 - $124,800",
-  "high: 124,800+",
-];
+  "$45,760 - $52,000",
+  "$52,001 - $62,400",
+  "$62,401 - $83,200",
+  "$83,201 - $124,800",
+  "124,800+ Are you in tech?",
+]
 
-const button = document.getElementById("button");
-button.addEventListener("click", salaryModel);
+
+let resultDisplay = document.getElementById("resultDisplay");
+  let demand = 0;
+  let supply = 0;
 
 function salaryModel() {
-  let resultDisplay = document.getElementById("resultDisplay");
-  let demand = document.getElementById("demand").value;
-  let supply = document.getElementById("supply").value;
-  if (demand === "high" && supply === "low") {
+  let fetchDemand = document.getElementsByName("demand");
+
+
+  for (i = 0; i < fetchDemand.length; i++) {
+    if (fetchDemand[i].checked) {
+     demand = fetchDemand[i].value;
+    }
+  }
+
+  let fetchSupply = document.getElementsByName("supply");
+
+  for (i = 0; i < fetchSupply.length; i++) {
+    if (fetchSupply[i].checked) {
+      supply = fetchSupply[i].value;
+    }
+  }
+
+  if (demand === "High" && supply === "Low") {
     resultDisplay.textContent = incomes[4];
   } else if (
-    (demand === "high" && supply === "medium") ||
-    (demand === "medium" && supply === "low")
+    (demand === "High" && supply === "Medium") ||
+    (demand === "Medium" && supply === "Low")
   ) {
     resultDisplay.textContent = incomes[3];
   } else if (
-    (demand === "medium" && supply === "medium") ||
-    (demand === "high" && supply === "high") ||
-    (demand === "low" && supply === "low")
+    (demand === "Medium" && supply === "Medium") ||
+    (demand === "High" && supply === "High") ||
+    (demand === "Low" && supply === "Low")
   ) {
     resultDisplay.textContent = incomes[2];
   } else if (
-    (demand === "medium" && supply === "high") ||
-    (demand === "low" && supply === "medium")
+    (demand === "Medium" && supply === "High") ||
+    (demand ==="Low" && supply === "mMdium")
   ) {
     resultDisplay.textContent = incomes[1];
   } else  {
     resultDisplay.textContent = incomes[0];
   }
 }
+
+const button = document.getElementById("button");
+button.addEventListener("click", salaryModel);
