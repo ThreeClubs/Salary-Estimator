@@ -1,22 +1,22 @@
 const incomes = [
-  "$45,760 - $52,000",
-  "$52,001 - $62,400",
-  "$62,401 - $83,200",
-  "$83,201 - $124,800",
-  "124,800+ Are you in tech?",
-]
+  "$45,760 - $52,000 🤓 Consider upskilling at Mission Ready HQ",
+  "$52,001 - $62,400 🙂 You could be just starting out",
+  "$62,401 - $83,200 😎 Comfortably in the middle",
+  "$83,201 - $124,800 🤩 You're doing very well!",
+  "$124,800+ Wow! 🤯 Are you a senior developer?",
+];
 
 const button = document.getElementById("button");
 let resultDisplay = document.getElementById("resultDisplay");
-let demand = 0;
-let supply = 0;
 
 function salaryModel() {
+  let demand = 0;
+  let supply = 0;
   let fetchDemand = document.getElementsByName("demand");
 
   for (i = 0; i < fetchDemand.length; i++) {
     if (fetchDemand[i].checked) {
-     demand = fetchDemand[i].value;
+      demand = fetchDemand[i].value;
     }
   }
 
@@ -43,10 +43,10 @@ function salaryModel() {
     resultDisplay.textContent = incomes[2];
   } else if (
     (demand === "Medium" && supply === "High") ||
-    (demand ==="Low" && supply === "Medium")
+    (demand === "Low" && supply === "Medium")
   ) {
     resultDisplay.textContent = incomes[1];
-  } else  {
+  } else {
     resultDisplay.textContent = incomes[0];
   }
 }
