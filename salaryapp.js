@@ -17,16 +17,16 @@ function salaryModel() {
   let fetchDemand = document.getElementsByName("demand");
   let fetchSupply = document.getElementsByName("supply");
 
-   for (i = 0; i < fetchDemand.length; i++) {
-     if (fetchDemand[i].checked) {
-       demand = fetchDemand[i].value;
-     }
-   }
-   for (i = 0; i < fetchSupply.length; i++) {
-     if (fetchSupply[i].checked) {
-       supply = fetchSupply[i].value;
-     }
-   }
+  for (i = 0; i < fetchDemand.length; i++) {
+    if (fetchDemand[i].checked) {
+      demand = fetchDemand[i].value;
+    }
+  }
+  for (i = 0; i < fetchSupply.length; i++) {
+    if (fetchSupply[i].checked) {
+      supply = fetchSupply[i].value;
+    }
+  }
 
   if (demand === "High" && supply === "Low") {
     resultDisplay.textContent = incomes[4];
@@ -51,7 +51,13 @@ function salaryModel() {
   }
 }
 
+function waitMessage() {
+  resultDisplay.textContent = "Calculating results...";
+};
+
 const wait = (delay = 0) =>
   new Promise((resolve) => setTimeout(resolve, delay));
 
 button.addEventListener("click", () => wait(3000).then(salaryModel));
+
+// Try adding new HTML element with new ID and hide resultDisplay
