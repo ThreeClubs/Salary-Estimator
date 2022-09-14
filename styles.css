@@ -119,8 +119,8 @@ label {
     height: 2rem;
     border: solid 1px rgb(91, 250, 184);
     display: none;
-      border-radius: 50px;
-      overflow: hidden;
+    border-radius: 50px;
+    overflow: hidden;
 }
 
 #fancyBar {
