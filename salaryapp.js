@@ -55,16 +55,11 @@ function salaryEstimator() {
 
     const wait = (delay = 0) =>
       new Promise((resolve) => setTimeout(resolve, delay));
-      
+
     waitMessage();
     wait(3000).then(salaryModel);
 }
 
-
-
-
-
-// button.addEventListener("click", () => wait(3000).then(salaryModel));
 button.addEventListener("click", salaryEstimator);
 
-// Try adding new HTML element with new ID and hide resultDisplay
+
