@@ -10,24 +10,23 @@ const button = document.getElementById("button");
 let resultDisplay = document.getElementById("resultDisplay");
 
 function salaryModel() {
+
   let demand = 0;
   let supply = 0;
 
   let fetchDemand = document.getElementsByName("demand");
-
-  for (i = 0; i < fetchDemand.length; i++) {
-    if (fetchDemand[i].checked) {
-      demand = fetchDemand[i].value;
-    }
-  }
-
   let fetchSupply = document.getElementsByName("supply");
 
-  for (i = 0; i < fetchSupply.length; i++) {
-    if (fetchSupply[i].checked) {
-      supply = fetchSupply[i].value;
-    }
-  }
+   for (i = 0; i < fetchDemand.length; i++) {
+     if (fetchDemand[i].checked) {
+       demand = fetchDemand[i].value;
+     }
+   }
+   for (i = 0; i < fetchSupply.length; i++) {
+     if (fetchSupply[i].checked) {
+       supply = fetchSupply[i].value;
+     }
+   }
 
   if (demand === "High" && supply === "Low") {
     resultDisplay.textContent = incomes[4];
@@ -51,9 +50,6 @@ function salaryModel() {
     resultDisplay.textContent = incomes[0];
   }
 }
-
-const loadingMessage = () =>
-  (resultDisplay.textContent = "Calculating results... ");
 
 const wait = (delay = 0) =>
   new Promise((resolve) => setTimeout(resolve, delay));
