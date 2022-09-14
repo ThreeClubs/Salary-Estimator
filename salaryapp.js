@@ -10,13 +10,12 @@ const button = document.getElementById("button");
 let resultDisplay = document.getElementById("resultDisplay");
 
 function salaryModel() {
-
   let demand = 0;
   let supply = 0;
 
   let fetchDemand = document.getElementsByName("demand");
 
-    for (i = 0; i < fetchDemand.length; i++) {
+  for (i = 0; i < fetchDemand.length; i++) {
     if (fetchDemand[i].checked) {
       demand = fetchDemand[i].value;
     }
@@ -53,8 +52,10 @@ function salaryModel() {
   }
 }
 
-const loadingMessage = () => resultDisplay.textContent = "Calculating results... "
+const loadingMessage = () =>
+  (resultDisplay.textContent = "Calculating results... ");
 
-const wait = (delay = 0) => new Promise(resolve => setTimeout(resolve, delay));
+const wait = (delay = 0) =>
+  new Promise((resolve) => setTimeout(resolve, delay));
 
 button.addEventListener("click", () => wait(3000).then(salaryModel));
