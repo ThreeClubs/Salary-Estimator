@@ -1,15 +1,18 @@
 const incomes = [
-    "$45,760 - $52,000 🤓 Consider upskilling at Mission Ready HQ",
-    "$52,001 - $62,400 🙂 You could be just starting out",
-    "$62,401 - $83,200 😎 Comfortably in the middle",
-    "$83,201 - $124,800 🤩 You're doing very well!",
-    "$124,800+ Wow! 🤯 Are you a senior developer?",
-  ];
+  "$45,760 - $52,000 🤓 Consider upskilling at Mission Ready HQ",
+  // consider learning typescript because as we scale up things can get messy ---> change file name to .ts (make a clone)
+  "$52,001 - $62,400 🙂 You could be just starting out",
+  "$62,401 - $83,200 😎 Comfortably in the middle",
+  "$83,201 - $124,800 🤩 You're doing very well!",
+  "$124,800+ Wow! 🤯 Are you a senior developer?", // ES6 enumerate
+];
+
+//typescript react template ---> redo this project with REACT
 
 const button = document.getElementById("button");
 
-
 function salaryEstimator() {
+  // break up this function into helper functions
 
   let resultDisplay = document.getElementById("resultDisplay");
   let fancyBar = document.getElementById("fancyBar");
@@ -17,7 +20,7 @@ function salaryEstimator() {
   let complete = document.getElementById("complete");
   const fetchDemand = document.getElementsByName("demand");
   const fetchSupply = document.getElementsByName("supply");
- 
+
   function salaryModel() {
     let demand = 0;
     let supply = 0;
@@ -33,6 +36,7 @@ function salaryEstimator() {
       }
     }
     if (demand === "High" && supply === "Low") {
+      // constructor function similar to switch
       resultDisplay.textContent = incomes[4];
     } else if (
       (demand === "High" && supply === "Medium") ||
@@ -40,7 +44,7 @@ function salaryEstimator() {
     ) {
       resultDisplay.textContent = incomes[3];
     } else if (
-      (demand === "Medium" && supply === "Medium") ||
+      (demand === "Medium" && supply === "Medium") || // this isn't readable - DRY
       (demand === "High" && supply === "High") ||
       (demand === "Low" && supply === "Low")
     ) {
@@ -49,7 +53,7 @@ function salaryEstimator() {
       (demand === "Medium" && supply === "High") ||
       (demand === "Low" && supply === "Medium")
     ) {
-      resultDisplay.textContent = incomes[1];
+      resultDisplay.textContent = incomes[1]; // when you're deep in code this is hard to read - again think big scale
     } else {
       resultDisplay.textContent = incomes[0];
     }
@@ -62,15 +66,15 @@ function salaryEstimator() {
     let run = setInterval(frames, 50);
     function frames() {
       a++;
-      if(a == 101){
+      if (a == 101) {
         clearInterval(run);
         fancyWait.style.display = "none";
-        complete.style.display = "block";
+        complete.style.display = "block"; // apply a style refactor using className
       } else {
         fancyWait.style.display = "block";
-        fancyBar.style.width = a +"%" 
+        fancyBar.style.width = a + "%";
         complete.style.display = "none";
-        fancyBar.textContent = a +"%"
+        fancyBar.textContent = a + "%";
       }
     }
   }
@@ -83,4 +87,6 @@ function salaryEstimator() {
   wait(5000).then(salaryModel);
 }
 
-button.addEventListener("click", salaryEstimator);
+button.addEventListener("click", salaryEstimator); // use different .js
+
+//READ separation of concerns
