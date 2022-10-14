@@ -6,11 +6,11 @@ const incomes = [
   "$124,800+ Wow! 🤯 Are you a senior developer?", // ES6 enumerate
 ];
 
-  // consider learning typescript because as we scale up things can get messy ---> change file name to .ts (make a clone)
+// consider learning typescript because as we scale up things can get messy ---> change file name to .ts (make a clone)
 
 //typescript react template ---> redo this project with REACT
 
-const button = document.getElementById("button");
+document.getElementById("button").addEventListener("click", salaryEstimator);
 
 function salaryEstimator() {
   // break up this function into helper functions
@@ -59,12 +59,10 @@ function salaryEstimator() {
       resultDisplay.textContent = incomes[0];
     }
   }
-  const waitMessage = () =>
-    (resultDisplay.textContent = "Calculating results...");
 
   function progressBar() {
     let a = 0;
-    let run = setInterval(frames, 50);
+    let run = setInterval(frames, 30);
     function frames() {
       a++;
       if (a == 101) {
@@ -78,16 +76,16 @@ function salaryEstimator() {
         fancyBar.textContent = a + "%";
       }
     }
-    const waitMessage = () =>
-      (resultDisplay.textContent = "Calculating results...");
+  }
+  const waitMessage = () =>
+    (resultDisplay.textContent = "Calculating results...");
 
-    const wait = (delay = 0) =>
-      new Promise((resolve) => setTimeout(resolve, delay));
-      
-    waitMessage();
-    wait(3000).then(salaryModel);
+  const wait = (delay = 0) =>
+    new Promise((resolve) => setTimeout(resolve, delay));
+
+  progressBar();
+  waitMessage();
+  wait(3000).then(salaryModel);
 }
 
 button.addEventListener("click", salaryEstimator);
-
-
